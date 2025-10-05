@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form - Inaccessible Version</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-row {
+            margin-bottom: 15px;
+        }
+        .label-text {
+            display: block;
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .checkbox-group {
+            margin-top: 5px;
+        }
+        .help-text {
+            color: #aaa;
+            font-size: 12px;
+        }
+        .required {
+            color: red;
+        }
+        .warning-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff3cd;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+        }
+        .warning-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .warning-box li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-title">Student Information Form</div>
+        <div class="help-text">Please fill out all required fields</div>
+    
+    <!-- NO FORM ELEMENT - Issue #1 -->
+    <div class="form-row">
+        <span class="label-text">First Name <span class="required">*</span></span>
+        <input type="text" placeholder="Enter first name">
+    </div>
+
+    <div class="form-row">
+        <span class="label-text">Last Name <span class="required">*</span></span>
+        <input type="text" placeholder="Enter last name">
+    </div>
+
+    <div class="form-row">
+        <span class="label-text">Email Address <span class="required">*</span></span>
+        <input type="email" placeholder="student@email.com">
+    </div>
+
+    <div class="form-row">
+        <span class="label-text">Program of Study</span>
+        <select>
+            <option value="">Select a program</option>
+            <option value="arts">Liberal Arts</option>
+            <option value="science">Science</option>
+            <option value="business">Business</option>
+            <option value="nursing">Nursing</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <span class="label-text">Enrollment Status <span class="required">*</span></span>
+        <div>
+            <input type="radio" name="status"> Full-time
+            <input type="radio" name="status"> Part-time
+        </div>
+    </div>
+
+    <div class="form-row">
+        <span class="label-text">Communication Preferences</span>
+        <div class="checkbox-group">
+            <div><input type="checkbox"> Email updates</div>
+            <div><input type="checkbox"> Text message alerts</div>
+            <div><input type="checkbox"> Phone calls</div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <span class="label-text">Additional Comments</span>
+        <textarea rows="4" placeholder="Enter any additional information"></textarea>
+    </div>
+
+    <div class="form-row">
+        <span class="label-text">Expected Graduation Date</span>
+        <input type="date" tabindex="-1">
+    </div>
+
+    <!-- DIV USED AS BUTTON - Issue #9 -->
+    <div class="submit-btn" onclick="alert('Form submitted!')">
+        Submit Application
+    </div>
+
+    <!-- MOUSE-ONLY LINK - Issue #11 -->
+    <div style="margin-top: 20px;">
+        <span class="help-text" onclick="alert('Help: Contact admissions@college.edu for assistance')" style="cursor: pointer; text-decoration: underline;">
+            Click here for help
+        </span>
+    </div>
+</div>
+
+<div class="warning-box">
+    <strong>⚠️ Accessibility Issues in This Form:</strong>
+    <ul>
+        <li>❌ No &lt;form&gt; element</li>
+        <li>❌ Labels not associated with inputs (no for/id connection)</li>
+        <li>❌ Radio buttons not in a fieldset with legend</li>
+        <li>❌ Checkboxes not properly labeled</li>
+        <li>❌ Submit is a div, not a button (can't activate with Enter/Space)</li>
+        <li>❌ Date field has tabindex="-1" (removed from keyboard navigation)</li>
+        <li>❌ Low contrast text (#aaa on white)</li>
+        <li>❌ "Click here" link relies only on mouse onclick</li>
+        <li>❌ No required field indicators for screen readers</li>
+        <li>❌ No error handling or validation feedback</li>
+    </ul>
+    <p><strong>Try it:</strong> Use only your keyboard (Tab key) to navigate this form and notice the problems!</p>
+</div>
+</body>
+</html>
