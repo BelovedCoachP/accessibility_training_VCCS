@@ -69,6 +69,7 @@
             background-color: #fff3cd;
             border-radius: 4px;
             border-left: 4px solid #ffc107;
+            display: none;
         }
         .warning-box ul {
             margin: 10px 0;
@@ -145,13 +146,13 @@
 
     <!-- MOUSE-ONLY LINK - Issue #11 -->
     <div style="margin-top: 20px;">
-        <span class="help-text" onclick="alert('Help: Contact admissions@college.edu for assistance')" style="cursor: pointer; text-decoration: underline;">
+        <span class="help-text" onclick="document.getElementById('issues').style.display='block'; alert('Help: Contact admissions@college.edu for assistance. Scroll down to see accessibility issues!');" style="cursor: pointer; text-decoration: underline;">
             Click here for help
         </span>
     </div>
 </div>
 
-<div class="warning-box">
+<div class="warning-box" id="issues">
     <strong>⚠️ Accessibility Issues in This Form:</strong>
     <ul>
         <li>❌ No &lt;form&gt; element</li>
@@ -165,7 +166,9 @@
         <li>❌ No required field indicators for screen readers</li>
         <li>❌ No error handling or validation feedback</li>
     </ul>
-    <p><strong>Try it:</strong> Use only your keyboard (Tab key) to navigate this form and notice the problems!</p>
+    <p><strong>Did you try:</strong> Using only your keyboard (Tab key) to navigate this form? Notice the problems!</p>
 </div>
+
+
 </body>
 </html>
