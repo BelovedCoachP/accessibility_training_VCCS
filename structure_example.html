@@ -14,16 +14,17 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
-            cursor: none;
-            overflow: hidden;
-            height: 100vh;
+            cursor: crosshair;
+            overflow: auto;
+            min-height: 100vh;
         }
         
         .page-content {
             padding: 40px;
             background-color: white;
             min-height: 100vh;
-            width: 2000px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         /* NO proper heading hierarchy - everything is div with styling */
@@ -84,9 +85,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.85);
             pointer-events: none;
             z-index: 9998;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
         }
         
         .list-item {
@@ -115,17 +121,36 @@
             z-index: 10000;
             font-weight: bold;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        .start-button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .start-button:hover {
+            background-color: #004080;
         }
     </style>
 </head>
 <body>
-    <div class="instruction">
-        Move your mouse to see the magnified view (simulates 400% zoom)
+    <div class="instruction" id="instruction">
+        <div>Experience Screen Magnification Simulation</div>
+        <div style="font-size: 14px; margin-top: 5px; font-weight: normal;">Try to find "When are final exams?" using only the magnifier</div>
+        <button class="start-button" onclick="startMagnifier()">Start Magnifier Simulation</button>
     </div>
     
-    <div class="overlay"></div>
+    <div class="overlay" id="overlay"></div>
     
-    <div class="magnifier" id="magnifier">
+    <div class="magnifier" id="magnifier" style="display: none;">
         <div class="magnifier-content" id="magnifierContent"></div>
     </div>
     
@@ -205,17 +230,31 @@
         const magnifier = document.getElementById('magnifier');
         const magnifierContent = document.getElementById('magnifierContent');
         const pageContent = document.getElementById('pageContent');
+        const overlay = document.getElementById('overlay');
+        const instruction = document.getElementById('instruction');
         
         const magnifierSize = 200;
         const zoomLevel = 2.5;
         
-        // Clone the content for magnification
-        const clonedContent = pageContent.cloneNode(true);
-        clonedContent.style.transform = `scale(${zoomLevel})`;
-        clonedContent.style.width = pageContent.offsetWidth + 'px';
-        magnifierContent.appendChild(clonedContent);
+        let magnifierActive = false;
+        
+        function startMagnifier() {
+            magnifierActive = true;
+            overlay.classList.add('active');
+            magnifier.style.display = 'block';
+            instruction.style.display = 'none';
+            
+            // Clone the content for magnification
+            const clonedContent = pageContent.cloneNode(true);
+            clonedContent.style.transform = `scale(${zoomLevel})`;
+            clonedContent.style.width = pageContent.offsetWidth + 'px';
+            magnifierContent.innerHTML = '';
+            magnifierContent.appendChild(clonedContent);
+        }
         
         document.addEventListener('mousemove', (e) => {
+            if (!magnifierActive) return;
+            
             const x = e.clientX;
             const y = e.clientY;
             
@@ -231,9 +270,14 @@
             magnifierContent.style.top = contentY + 'px';
         });
         
-        // Show magnifier on mouse enter
-        document.addEventListener('mouseenter', () => {
-            magnifier.style.display = 'block';
+        // Press ESC to exit magnifier mode
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && magnifierActive) {
+                magnifierActive = false;
+                overlay.classList.remove('active');
+                magnifier.style.display = 'none';
+                instruction.style.display = 'block';
+            }
         });
     </script>
 </body>
