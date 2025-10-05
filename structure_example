@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Poor Structure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            cursor: none;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .page-content {
+            padding: 40px;
+            background-color: white;
+            min-height: 100vh;
+            width: 2000px;
+        }
+        
+        /* NO proper heading hierarchy - everything is div with styling */
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .content-block {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .info-text {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .link-text {
+            color: #0066cc;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        /* Magnifier lens */
+        .magnifier {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            border: 3px solid #333;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        .magnifier-content {
+            position: absolute;
+            transform-origin: top left;
+        }
+        
+        /* Overlay to darken everything except magnifier */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            pointer-events: none;
+            z-index: 9998;
+        }
+        
+        .list-item {
+            margin-left: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .button-style {
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        .instruction {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffc107;
+            padding: 15px 30px;
+            border-radius: 8px;
+            z-index: 10000;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="instruction">
+        Move your mouse to see the magnified view (simulates 400% zoom)
+    </div>
+    
+    <div class="overlay"></div>
+    
+    <div class="magnifier" id="magnifier">
+        <div class="magnifier-content" id="magnifierContent"></div>
+    </div>
+    
+    <div class="page-content" id="pageContent">
+        <div class="title">Student Portal Dashboard</div>
+        
+        <div class="content-block">
+            <div class="info-text">Welcome back, Student! Here's your personalized dashboard with important updates and quick access to essential services.</div>
+        </div>
+        
+        <div class="section-title">Important Announcements</div>
+        <div class="content-block">
+            <div class="info-text">Fall 2025 registration begins June 1st. Make sure to meet with your advisor before registering for classes. Financial aid priority deadline is March 15th.</div>
+            <div class="info-text">Campus will be closed for maintenance on May 20-22. All online services will remain available during this time.</div>
+        </div>
+        
+        <div class="section-title">Your Courses</div>
+        <div class="content-block">
+            <div class="list-item">ENG 111 - College Composition I - Dr. Johnson - MWF 10:00 AM</div>
+            <div class="list-item">MTH 161 - Precalculus I - Prof. Williams - TTh 1:00 PM</div>
+            <div class="list-item">BUS 101 - Introduction to Business - Dr. Anderson - MW 3:00 PM</div>
+            <div class="list-item">CSC 110 - Intro to Programming - Prof. Martinez - TTh 11:00 AM</div>
+        </div>
+        
+        <div class="section-title">Upcoming Assignments</div>
+        <div class="content-block">
+            <div class="info-text">English Essay - Due: October 15, 2025 - Topic: Analysis of Modern Literature</div>
+            <div class="info-text">Math Problem Set Chapter 5 - Due: October 12, 2025 - Problems 1-25</div>
+            <div class="info-text">Business Case Study - Due: October 20, 2025 - Market Analysis Report</div>
+            <div class="info-text">Programming Project - Due: October 18, 2025 - Create a Calculator App</div>
+        </div>
+        
+        <div class="section-title">Quick Links</div>
+        <div class="content-block">
+            <div class="link-text">View Full Schedule</div>
+            <div class="link-text">Check Grades</div>
+            <div class="link-text">Library Resources</div>
+            <div class="link-text">Tutoring Center</div>
+            <div class="link-text">Financial Aid Status</div>
+            <div class="link-text">Campus Map</div>
+        </div>
+        
+        <div class="section-title">Account Information</div>
+        <div class="content-block">
+            <div class="info-text">Student ID: 123456789</div>
+            <div class="info-text">Email: student@vccs.edu</div>
+            <div class="info-text">Current GPA: 3.45</div>
+            <div class="info-text">Credits Completed: 45</div>
+            <div class="info-text">Expected Graduation: Spring 2026</div>
+        </div>
+        
+        <div class="section-title">Important Dates</div>
+        <div class="content-block">
+            <div class="info-text">Last Day to Drop Classes: October 30, 2025</div>
+            <div class="info-text">Midterm Exams: November 5-9, 2025</div>
+            <div class="info-text">Thanksgiving Break: November 27-29, 2025</div>
+            <div class="info-text">Final Exams: December 10-16, 2025</div>
+            <div class="info-text">Winter Break Begins: December 17, 2025</div>
+        </div>
+        
+        <div class="section-title">Campus Resources</div>
+        <div class="content-block">
+            <div class="info-text">Need help? Visit the Student Success Center in Building A, Room 105. Hours: Monday-Friday 8:00 AM - 5:00 PM</div>
+            <div class="info-text">Counseling services available by appointment. Call (555) 123-4567 to schedule.</div>
+            <div class="info-text">Free tutoring available for Math, English, and Science courses. Check schedule online.</div>
+        </div>
+        
+        <div class="section-title">Notifications</div>
+        <div class="content-block">
+            <div class="info-text">You have 3 new messages from your instructors</div>
+            <div class="info-text">Your hold for unpaid fees has been cleared</div>
+            <div class="info-text">New scholarship opportunities available - check Financial Aid portal</div>
+        </div>
+    </div>
+
+    <script>
+        const magnifier = document.getElementById('magnifier');
+        const magnifierContent = document.getElementById('magnifierContent');
+        const pageContent = document.getElementById('pageContent');
+        
+        const magnifierSize = 200;
+        const zoomLevel = 2.5;
+        
+        // Clone the content for magnification
+        const clonedContent = pageContent.cloneNode(true);
+        clonedContent.style.transform = `scale(${zoomLevel})`;
+        clonedContent.style.width = pageContent.offsetWidth + 'px';
+        magnifierContent.appendChild(clonedContent);
+        
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // Position magnifier centered on mouse
+            magnifier.style.left = (x - magnifierSize / 2) + 'px';
+            magnifier.style.top = (y - magnifierSize / 2) + 'px';
+            
+            // Calculate the position for the cloned content
+            const contentX = -(x * zoomLevel - magnifierSize / 2);
+            const contentY = -(y * zoomLevel - magnifierSize / 2);
+            
+            magnifierContent.style.left = contentX + 'px';
+            magnifierContent.style.top = contentY + 'px';
+        });
+        
+        // Show magnifier on mouse enter
+        document.addEventListener('mouseenter', () => {
+            magnifier.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
