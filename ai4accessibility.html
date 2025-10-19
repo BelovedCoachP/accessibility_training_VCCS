@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive guide for using AI tools to create accessible educational content faster and more efficiently.">
+    <title>AI for Accessibility - Resource Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            margin: -40px -40px 40px -40px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .tool-card {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .tool-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .prompt-box {
+            background-color: #ecf0f1;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            border: 1px solid #bdc3c7;
+        }
+
+        .prompt-box code {
+            display: block;
+            white-space: pre-wrap;
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 10px 10px 10px 40px;
+            margin: 8px 0;
+            position: relative;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 15px;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .checklist.dont li:before {
+            content: "✗";
+            color: #e74c3c;
+        }
+
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: #856404;
+        }
+
+        .tip-box {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .tip-box strong {
+            color: #0c5460;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 10px 10px 0;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            header {
+                padding: 20px;
+                margin: -20px -20px 20px -20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .toc li {
+            margin: 10px 0;
+        }
+
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .formula-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #ecf0f1;
+            text-align: center;
+            color: #7f8c8d;
+        }
+
+        .contact-info {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .contact-info h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            header {
+                background: #2c3e50;
+                color: white;
+            }
+            
+            .button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI for Accessibility</h1>
+            <p class="subtitle">Your Quick Reference Guide for Using AI Tools to Create Accessible Educational Content</p>
+        </header>
+
+        <div class="toc">
+            <h3>Quick Navigation</h3>
+            <ul>
+                <li><a href="#alt-text">1. Alt Text Generation</a></li>
+                <li><a href="#captions">2. Video Captions & Transcripts</a></li>
+                <li><a href="#simplify">3. Simplifying Complex Language</a></li>
+                <li><a href="#document-review">4. Document Accessibility Review</a></li>
+                <li><a href="#pdf">5. Accessible PDF Creation</a></li>
+                <li><a href="#prompts">AI Prompt Library</a></li>
+                <li><a href="#best-practices">Best Practices</a></li>
+                <li><a href="#quick-start">Quick Start Plan</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#tools-comparison">Tools Comparison</a></li>
+            </ul>
+        </div>
+
+        <section id="alt-text">
+            <h2>1. Alt Text Generation</h2>
+            
+            <div class="tool-card">
+                <h4>Recommended Tools</h4>
+                <ul>
+                    <li><strong>ChatGPT:</strong> <a href="https://chat.openai.com" target="_blank">chat.openai.com</a> (Free/Paid)</li>
+                    <li><strong>Google Gemini:</strong> <a href="https://gemini.google.com" target="_blank">gemini.google.com</a> (Free)</li>
+                    <li><strong>Microsoft Copilot:</strong> <a href="https://copilot.microsoft.com" target="_blank">copilot.microsoft.com</a> (Free/Paid)</li>
+                </ul>
+            </div>
+
+            <h3>Copy-Paste Prompts</h3>
+            <div class="prompt-box">
+                <code>"Write concise alt text for this image for accessibility purposes."</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Describe this chart/diagram for someone who cannot see it."</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Create alt text for this [photo/graph/illustration] focusing on [key information]."</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>Pro Tips:</strong>
+                <ul>
+                    <li>Always review AI suggestions for accuracy</li>
+                    <li>Verify technical terms and names</li>
+                    <li>Keep alt text concise (1-2 sentences)</li>
+                    <li>Mark decorative images as decorative (don't use AI for these)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="captions">
+            <h2>2. Video Captions & Transcripts</h2>
+            
+            <div class="tool-card">
+                <h4>Recommended Tools</h4>
+                <ul>
+                    <li><strong>YouTube Auto-Captions:</strong> Free, built into YouTube</li>
+                    <li><strong>Google Meet Transcription:</strong> Free, built into Google Meet</li>
+                    <li><strong>Otter.ai:</strong> <a href="https://otter.ai" target="_blank">otter.ai</a> (Free tier: 300 min/month)</li>
+                    <li><strong>Descript:</strong> <a href="https://descript.com" target="_blank">descript.com</a> (Paid)</li>
+                </ul>
+            </div>
+
+            <h3>Workflow</h3>
+            <ol>
+                <li>Upload video to platform</li>
+                <li>Let AI generate initial captions</li>
+                <li><strong>Edit for accuracy</strong> (budget 5-10 min per video)</li>
+                <li>Export and attach to video</li>
+            </ol>
+
+            <div class="warning-box">
+                <strong>⚠️ Common Errors to Fix:</strong>
+                <ul>
+                    <li>Names of people and places</li>
+                    <li>Technical terms and jargon</li>
+                    <li>Discipline-specific vocabulary</li>
+                    <li>Homophones (there/their, two/too/to)</li>
+                    <li>Punctuation and sentence breaks</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> Create a custom vocabulary list in your captioning tool for recurring technical terms.
+            </div>
+        </section>
+
+        <section id="simplify">
+            <h2>3. Simplifying Complex Language</h2>
+            
+            <div class="tool-card">
+                <h4>Recommended Tools</h4>
+                <ul>
+                    <li><strong>ChatGPT or Google Gemini:</strong> For rewriting content (Free/Paid)</li>
+                    <li><strong>Grammarly:</strong> <a href="https://grammarly.com" target="_blank">grammarly.com</a> (Free/Paid - includes readability scores)</li>
+                    <li><strong>Hemingway Editor:</strong> <a href="https://hemingwayapp.com" target="_blank">hemingwayapp.com</a> (Free web version)</li>
+                </ul>
+            </div>
+
+            <h3>Copy-Paste Prompts</h3>
+            <div class="prompt-box">
+                <code>"Rewrite this text at a 10th-grade reading level while maintaining accuracy."</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Break this paragraph into shorter, clearer sentences."</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Simplify this academic language for general readers."</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Explain this concept in plain language without losing meaning."</code>
+            </div>
+
+            <h3>Why This Matters</h3>
+            <ul>
+                <li>Helps students with cognitive disabilities</li>
+                <li>Supports ESL learners</li>
+                <li>Improves comprehension for everyone</li>
+                <li>Reduces cognitive load</li>
+            </ul>
+        </section>
+
+        <section id="document-review">
+            <h2>4. Document Accessibility Review</h2>
+            
+            <div class="tool-card">
+                <h4>Recommended Tools</h4>
+                <ul>
+                    <li><strong>ChatGPT or Google Gemini:</strong> For guidance and explanations</li>
+                    <li><strong>Grackle for Google Docs:</strong> <a href="https://grackledocs.com" target="_blank">grackledocs.com</a> (Free/Paid)</li>
+                </ul>
+            </div>
+
+            <h3>Copy-Paste Prompts</h3>
+            <div class="prompt-box">
+                <code>"What accessibility issues might this document have?"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Give me a checklist for making this [document type] accessible."</code>
+            </div>
+            <div class="prompt-box">
+                <code>"How do I fix color contrast issues in my slides?"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"What's the best way to structure headings for accessibility?"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"How can I make this table more accessible for screen readers?"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"What does 'logical reading order' mean and how do I check it?"</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>How to Use:</strong>
+                <ul>
+                    <li>Ask AI for general guidance and explanations</li>
+                    <li>Use Grackle or built-in checkers for actual scanning</li>
+                    <li>Verify AI suggestions with real accessibility tools</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="pdf">
+            <h2>5. Accessible PDF Creation</h2>
+            
+            <div class="tool-card">
+                <h4>Recommended Tool: Grackle for Google Docs</h4>
+                <p><a href="https://grackledocs.com" target="_blank">grackledocs.com</a></p>
+            </div>
+
+            <h3>Installation</h3>
+            <ol>
+                <li>Open any Google Doc</li>
+                <li>Go to Extensions → Add-ons → Get add-ons</li>
+                <li>Search "Grackle Docs"</li>
+                <li>Click Install</li>
+            </ol>
+
+            <h3>How to Use</h3>
+            <ol>
+                <li>Create document in Google Docs with proper headings and alt text</li>
+                <li>Go to Extensions → Grackle Docs → Launch</li>
+                <li>Review flagged accessibility issues</li>
+                <li>Fix issues using Grackle's guided suggestions</li>
+                <li>Export as accessible PDF</li>
+            </ol>
+
+            <h3>What Grackle AI Checks</h3>
+            <ul>
+                <li>Missing alt text</li>
+                <li>Heading structure</li>
+                <li>Color contrast</li>
+                <li>Reading order</li>
+                <li>Table headers</li>
+                <li>Form fields</li>
+            </ul>
+        </section>
+
+        <section id="prompts">
+            <h2>AI Prompt Library - Copy & Use These</h2>
+
+            <h3>For Images</h3>
+            <div class="prompt-box">
+                <code>"Write alt text for this course schedule graphic"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Describe this lab diagram for a biology student using a screen reader"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Create alt text for this chart showing [specific data]"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"What should I include in alt text for this campus map?"</code>
+            </div>
+
+            <h3>For Videos</h3>
+            <div class="prompt-box">
+                <code>"Review these auto-generated captions and flag any errors"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Create a transcript from this video lecture including speaker names and timestamps"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"What's missing from these captions for accessibility?"</code>
+            </div>
+
+            <h3>For Documents</h3>
+            <div class="prompt-box">
+                <code>"Is this heading structure accessible: [paste your headings]"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"How can I make this table accessible: [describe table]"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"What's wrong with this link text: 'click here'"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Suggest better link text for: [paste URL]"</code>
+            </div>
+
+            <h3>For Content Simplification</h3>
+            <div class="prompt-box">
+                <code>"Simplify this course policy for students: [paste text]"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Rewrite this assignment description at a 10th-grade level: [paste text]"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Make this syllabus section clearer: [paste text]"</code>
+            </div>
+
+            <h3>For Color & Contrast</h3>
+            <div class="prompt-box">
+                <code>"What color combinations meet WCAG 2.1 AA standards for text?"</code>
+            </div>
+            <div class="prompt-box">
+                <code>"Is [color] on [background color] accessible?"</code>
+            </div>
+            <div class="warning-box">
+                <strong>Note:</strong> Always verify color contrast with actual contrast checkers like <a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker</a>
+            </div>
+        </section>
+
+        <section id="best-practices">
+            <h2>AI Best Practices Checklist</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #27ae60;">✓ DO</h3>
+                    <ul class="checklist">
+                        <li>Use AI as your starting point, not your final answer</li>
+                        <li>Always review and edit AI-generated content</li>
+                        <li>Verify accuracy of names, terms, and technical content</li>
+                        <li>Test results with real accessibility tools</li>
+                        <li>Save effective prompts for reuse</li>
+                        <li>Share successful strategies with colleagues</li>
+                        <li>Keep learning as AI tools evolve</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="color: #e74c3c;">✗ DON'T</h3>
+                    <ul class="checklist dont">
+                        <li>Trust AI alt text without reviewing it</li>
+                        <li>Publish auto-generated captions without editing</li>
+                        <li>Rely solely on AI for compliance</li>
+                        <li>Skip verification with accessibility checkers</li>
+                        <li>Assume AI understands your specific context</li>
+                        <li>Share AI content without human review</li>
+                        <li>Forget that you're the expert on your content</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="quick-start">
+            <h2>Quick Start Plan</h2>
+
+            <div class="tool-card">
+                <h4>This Week</h4>
+                <ul class="checklist">
+                    <li>Choose ONE AI tool to try</li>
+                    <li>Use it for ONE accessibility task</li>
+                    <li>Document what worked and what didn't</li>
+                </ul>
+            </div>
+
+            <div class="tool-card">
+                <h4>This Month</h4>
+                <ul class="checklist">
+                    <li>Try at least 3 different AI tools</li>
+                    <li>Create your own prompt library</li>
+                    <li>Share a tip with a colleague</li>
+                </ul>
+            </div>
+
+            <div class="tool-card">
+                <h4>This Semester</h4>
+                <ul class="checklist">
+                    <li>Integrate AI into your regular workflow</li>
+                    <li>Track time saved vs. manual methods</li>
+                    <li>Provide feedback to IT about institutional needs</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>Troubleshooting Common Issues</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>AI alt text is too generic</strong></td>
+                        <td>Add specifics to your prompt: "Write alt text for this enrollment chart focusing on the 25% increase from 2023 to 2024"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AI captions have many errors</strong></td>
+                        <td>Use the platform's custom vocabulary feature to teach it your discipline-specific terms</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AI simplified text too much</strong></td>
+                        <td>Adjust your prompt: "Simplify while maintaining technical accuracy" or "Rewrite at college level, not middle school"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Don't know which AI tool to use</strong></td>
+                        <td>Start with free options (ChatGPT, Gemini, YouTube) before investing in paid tools</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AI doesn't understand my content</strong></td>
+                        <td>Provide more context in your prompt: "This is a chemistry diagram showing..."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="tools-comparison">
+            <h2>Free AI Tools Comparison</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>Best For</th>
+                        <th>Limitations</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ChatGPT (Free)</strong></td>
+                        <td>Alt text, guidance</td>
+                        <td>Image uploads in paid version only</td>
+                        <td>Free/Paid</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Gemini</strong></td>
+                        <td>Alt text, guidance, document review</td>
+                        <td>Still evolving</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>YouTube Auto-Captions</strong></td>
+                        <td>Video captions</td>
+                        <td>Requires editing</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grackle (Basic)</strong></td>
+                        <td>PDF accessibility</td>
+                        <td>Limited free scans</td>
+                        <td>Free/Paid</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Otter.ai (Free)</strong></td>
+                        <td>Transcription</td>
+                        <td>300 min/month free</td>
+                        <td>Free/Paid</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Additional Resources</h2>
+
+            <h3>Learn More About AI & Accessibility</h3>
+            <ul>
+                <li><strong>W3C AI and Accessibility Initiative:</strong> <a href="https://www.w3.org/WAI/AI/" target="_blank">w3.org/WAI/AI</a></li>
+                <li><strong>WebAIM Resources:</strong> <a href="https://webaim.org/" target="_blank">webaim.org</a></li>
+                <li><strong>Accessibility Ed for the VCCS:</strong> <a href="https://accessibility.vccs.edu/" target="_blank">accessibility.vccs.edu</a></li>
+            </ul>
+
+            <h3>Non-AI Accessibility Tools (Still Essential!)</h3>
+            <ul>
+                <li><strong>WebAIM Contrast Checker:</strong> <a href="https://webaim.org/resources/contrastchecker/" target="_blank">webaim.org/resources/contrastchecker</a></li>
+                <li><strong>WAVE Accessibility Tool:</strong> <a href="https://wave.webaim.org/" target="_blank">wave.webaim.org</a></li>
+                <li><strong>PAVE PDF Checker:</strong> <a href="https://pave-pdf.org/" target="_blank">pave-pdf.org</a></li>
+            </ul>
+
+            <a href="https://chat.openai.com" class="button" target="_blank">Try ChatGPT</a>
+            <a href="https://gemini.google.com" class="button" target="_blank">Try Google Gemini</a>
+            <a href="https://grackledocs.com" class="button" target="_blank">Get Grackle</a>
+        </section>
+
+        <div class="formula-box">
+            AI Speed + Your Expertise = Accessible Content ✓
+        </div>
+
+        <div class="warning-box" style="border-left-color: #e74c3c;">
+            <strong>Remember:</strong> AI is your assistant, not your replacement. You know your content, your students, and your discipline best. Use AI to work faster, but always bring your human judgment to ensure quality and accuracy.
+        </div>
+
+        <div class="contact-info">
+            <h3>Questions? Need Help?</h3>
+            <p><strong>Page Durham, Ed.S</strong></p>
+            <p>Email: <a href="mailto:pdurham@vccs.edu">pdurham@vccs.edu</a> or <a href="mailto:belovedcoachp@gmail.com">belovedcoachp@gmail.com</a></p>
+            <p>Want to share what's working? I'd love to hear from you!</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Virginia Community College System | Page Durham, Ed.S</p>
+            <p>This resource is provided as part of VCCS accessibility training initiatives.</p>
+            <p style="margin-top: 20px; font-size: 0.9em;">Last updated: January 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add print functionality
+        function printPage() {
+            window.print();
+        }
+
+        // Add a print button dynamically
+        const header = document.querySelector('header');
+        const printButton = document.createElement('button');
+        printButton.textContent = 'Print This Guide';
+        printButton.className = 'button';
+        printButton.style.marginTop = '20px';
+        printButton.onclick = printPage;
+        header.appendChild(printButton);
+    </script>
+</body>
+</html>
+```
